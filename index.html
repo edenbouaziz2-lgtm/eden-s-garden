@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🌱 המיקוד היומי שלי</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;500;700&display=swap');
+        
+        /* סגנון כללי ורקע */
+        body {
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            padding: 0; 
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* הצמדה למעלה למקרה של גלילה */
+            padding-top: 50px;
+            padding-bottom: 50px;
+            
+            /* הגדרת תמונת הרקע החדשה (Base64) */
+            background-color: #f7e8e8; 
+            position: relative;
+        }
+
+        /* הטמעת תמונת המונסטרה באמצעות Base64 */
+        body::before {
+            content: "";
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* קוד Base64 של תמונת המונסטרה בגוונים ירוק וורוד */
+            background-image: url(https://mfiles.alphacoders.com/987/thumb-1920-987746.jpg);
+            background-size: cover;
+            background-position: center bottom;
+            opacity: 1; /* שקיפות עדינה */
+            z-index: -1;
+            transition: opacity 0.5s ease; 
+        }
+
+        /* מכולה מרכזית לאפליקציה */
+        .task-app-container {
+            max-width: 600px;
+            width: 90%;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+        }
+
+        /* כותרת ראשית */
+        h1 {
+            text-align: center;
+            color: #4a7c59; /* ירוק מונסטרה */
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* כותרות משנה לקבוצות */
+        .task-group h2 {
+            color: #92585c; /* ורוד עמוק יותר */
+            border-bottom: 2px solid #f7e8e8;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+
+        /* כותרות קטנות יותר בתוך קבוצה (כמו "תרגול מודעות") */
+        .task-group h3 {
+            color: #4a7c59; /* ירוק מונסטרה */
+            font-size: 1.2em;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        /* סגנון לכל שורת משימה */
+        .task-group label {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+        }
+
+        /* סגנון תיבת הסימון */
+        input[type="checkbox"] {
+            margin-left: 15px;
+            transform: scale(1.4);
+            accent-color: #4a7c59; /* צבע הסימון */
+        }
+
+        /* סגנון למשימה שסומנה כ'הושלמה' */
+        input[type="checkbox"]:checked + span {
+            text-decoration: line-through;
+            color: #92585c;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        /* כפתור איפוס */
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #92585c; 
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        button:hover {
+            background-color: #b0696e;
+        }
+        
+        button:active {
+            transform: scale(0.99);
+        }
+        
+        /* סגנון לטקסט המשימה (כדי שנוכל לסמן אותו) */
+        .task-text {
+            flex-grow: 1; 
+        }
+
+        /* התאמה למסכי מובייל קטנים */
+        @media (max-width: 500px) {
+            .task-app-container {
+                padding: 20px;
+                margin-top: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .task-group label {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="task-app-container">
+        <h1>🌱 המיקוד היומי שלי</h1>
+        
+        <div class="task-group">
+            <h2>התחלה רגועה</h2>
+            <label>
+                <input type="checkbox" data-task-id="1"> 
+                <span class="task-text">שאיפה חצי גובה, נשיפה מרגיעה</span>
+            </label>
+            <label>
+                <input type="checkbox" data-task-id="2"> 
+                <span class="task-text">משפט עוגן</span>
+            </label>
+        </div>
+        
+        <div class="task-group">
+            <h2>זיהוי טריגר (התמודדות)</h2>
+            <p style="font-size: 0.9em; margin-top: -10px; margin-bottom: 15px; color: #92585c; font-weight: 500;">
+                פעולות אלה מיועדות לרגע זיהוי הטריגר:
+            </p>
+            <label>
+                <input type="checkbox" data-task-id="3"> 
+                <span class="task-text">זיהוי הטריגר: לומר ״זה טריגר שלי״.</span>
+            </label>
+            <label>
+                <input type="checkbox" data-task-id="4"> 
+                <span class="task-text">נשימה + הרפיית חזה/בטן</span>
+            </label>
+            <label>
+                <input type="checkbox" data-task-id="5"> 
+                <span class="task-text">חזרה על משפט עוגן</span>
+            </label>
+            <label>
+                <input type="checkbox" data-task-id="6"> 
+                <span class="task-text">דחיית תגובה ל-10 דקות לפחות</span>
+            </label>
+        </div>
+    
+        <div class="task-group">
+            <h2>תרגול מודעות ורוגע יומי</h2>
+            <p style="font-size: 0.9em; margin-top: -10px; margin-bottom: 10px; color: #555;">
+                אם לא היה טריגר, יש לבצע תרגול מודעות ותרגיל רוגע.
+            </p>
+
+            <h3>תרגול מודעות:</h3>
+            <label>
+                <input type="checkbox" data-task-id="7"> 
+                <span class="task-text">לרשום 1-2 הצלחות</span>
+            </label>
+    
+            <h3>תרגול רוגע:</h3>
+            <label>
+                <input type="checkbox" data-task-id="8"> 
+                <span class="task-text">הרפיה ונשימות</span>
+            </label>
+            <label>
+                <input type="checkbox" data-task-id="9"> 
+                <span class="task-text">חיזוק משפט עוגן</span>
+            </label>
+        </div>
+
+        <button onclick="resetTasks()">איפוס משימות יומי</button>
+    </div>
+
+    <script>
+        // --- פונקציות שמירה ואיפוס בזיכרון הדפדפן (LocalStorage) ---
+
+        // טוען את מצב המשימות כשפותחים את הדף
+        window.addEventListener('load', () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                const taskId = checkbox.getAttribute('data-task-id');
+                // טוען את המצב שנשמר, ברירת מחדל היא false (לא מסומן)
+                const isChecked = localStorage.getItem(`task-${taskId}`) === 'true';
+                checkbox.checked = isChecked;
+            });
+        });
+
+        // שומר את מצב המשימות כשלוחצים עליהן
+        document.addEventListener('change', (event) => {
+            if (event.target.type === 'checkbox') {
+                const checkbox = event.target;
+                const taskId = checkbox.getAttribute('data-task-id');
+                // שומר true אם מסומן, false אם לא
+                localStorage.setItem(`task-${taskId}`, checkbox.checked);
+            }
+        });
+        
+        // פונקציה לאיפוס כל תיבות הסימון ולניקוי הזיכרון
+        function resetTasks() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+                const taskId = checkbox.getAttribute('data-task-id');
+                // מנקה את הזיכרון עבור המשימה הספציפית
+                localStorage.setItem(`task-${taskId}`, 'false');
+            });
+            alert('המשימות היומיות אופסו. יום חדש, כוונות חדשות!');
+        }
+
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
