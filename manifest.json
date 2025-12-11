@@ -1,7 +1,7 @@
 {
   "name": "Work In Progress",
   "short_name": "My Journey",
-  "start_url": "index.html",
+ "start_url": "/eden-s-garden/index.html",
   "display": "standalone",
   "background_color": "#F7F5F5",
   "theme_color": "#92585c", 
